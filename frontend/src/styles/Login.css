@@ -1,0 +1,387 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+/* ─── Design tokens (previously undefined — this is why text was invisible) ─ */
+:root {
+  --wf-navy-900: #0a0e1a;
+  --wf-navy-800: #0d1628;
+  --wf-navy-700: #111827;
+
+  --wf-text-primary: #ffffff;
+  --wf-text-secondary: #cbd5e1;
+  --wf-text-muted: #94a3b8;
+
+  --wf-gold-400: #ddb765;
+  --wf-gold-500: #c9a84c;
+
+  --wf-border: rgba(201, 168, 76, 0.18);
+  --wf-input-border: rgba(255, 255, 255, 0.12);
+  --wf-error: #ff6b6b;
+  --wf-success: #52c97e;
+
+  --wf-radius-sm: 10px;
+  --wf-font-display: 'Playfair Display', serif;
+  --wf-font-body: 'Inter', sans-serif;
+  --wf-shadow-gold: 0 20px 60px rgba(201, 168, 76, 0.12);
+}
+
+@keyframes wf-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ─── Page shell ────────────────────────────────────────────────────────── */
+
+.lg-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--wf-navy-900);
+  position: relative;
+  overflow: hidden;
+  padding: 24px;
+  font-family: var(--wf-font-body);
+}
+
+.lg-orb1 {
+  position: absolute;
+  top: -20%;
+  left: -10%;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201, 168, 76, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.lg-orb2 {
+  position: absolute;
+  bottom: -30%;
+  right: -15%;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(30, 45, 85, 0.6) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.lg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(201, 168, 76, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201, 168, 76, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.lg-container {
+  display: flex;
+  width: 100%;
+  max-width: 1000px;
+  min-height: 600px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--wf-border);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5), var(--wf-shadow-gold);
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── Left panel ────────────────────────────────────────────────────────── */
+
+.lg-left-panel {
+  flex: 1;
+  background: linear-gradient(135deg, #0d1628 0%, #0a1020 50%, #070e1c 100%);
+  padding: 52px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  border-right: 1px solid var(--wf-border);
+}
+
+.lg-brand-mark {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.lg-logo-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(201, 168, 76, 0.08);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lg-brand-name {
+  font-family: var(--wf-font-display);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--wf-text-primary);
+  letter-spacing: 0.5px;
+}
+
+.lg-hero-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 40px;
+}
+
+.lg-tagline {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--wf-gold-500);
+  margin-bottom: 16px;
+}
+
+.lg-hero-heading {
+  font-family: var(--wf-font-display);
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--wf-text-primary);
+  margin-bottom: 20px;
+}
+
+.lg-gold-text { color: var(--wf-gold-400); }
+
+.lg-hero-subtext {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--wf-text-secondary);
+  max-width: 360px;
+}
+
+.lg-stats-row {
+  display: flex;
+  gap: 32px;
+  padding-top: 40px;
+  border-top: 1px solid var(--wf-border);
+}
+
+.lg-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.lg-stat-value {
+  font-family: var(--wf-font-display);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--wf-gold-400);
+}
+
+.lg-stat-label {
+  font-size: 11px;
+  color: var(--wf-text-muted);
+  letter-spacing: 0.5px;
+}
+
+/* ─── Right panel (form) ────────────────────────────────────────────────── */
+
+.lg-right-panel {
+  width: 420px;
+  background: var(--wf-navy-700);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 40px;
+}
+
+.lg-card { width: 100%; }
+
+.lg-card-header { margin-bottom: 36px; }
+
+.lg-card-title {
+  font-family: var(--wf-font-display);
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--wf-text-primary);
+  margin-bottom: 8px;
+}
+
+.lg-card-subtitle {
+  font-size: 14px;
+  color: var(--wf-text-secondary);
+}
+
+.lg-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.lg-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.lg-field-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lg-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--wf-text-secondary);
+  letter-spacing: 0.3px;
+}
+
+.lg-input-wrap { position: relative; }
+
+.lg-input-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--wf-text-muted);
+  display: flex;
+  pointer-events: none;
+}
+
+.lg-input {
+  width: 100%;
+  background: var(--wf-navy-700);
+  border: 1px solid var(--wf-input-border);
+  border-radius: var(--wf-radius-sm);
+  padding: 12px 14px 12px 44px;
+  font-size: 14px;
+  color: var(--wf-text-primary);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-family: var(--wf-font-body);
+}
+
+.lg-input::placeholder { color: var(--wf-text-muted); }
+.lg-input:focus { border-color: var(--wf-gold-500); box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.12); }
+
+.lg-input-error {
+  border-color: var(--wf-error) !important;
+  box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+}
+
+.lg-eye-btn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--wf-text-muted);
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  transition: color 0.2s;
+}
+.lg-eye-btn:hover { color: var(--wf-text-secondary); }
+
+.lg-forgot-link {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  color: var(--wf-gold-500);
+  font-family: var(--wf-font-body);
+  transition: color 0.2s;
+}
+.lg-forgot-link:hover { color: var(--wf-gold-400); }
+
+.lg-error-msg {
+  font-size: 12px;
+  color: var(--wf-error);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.lg-submit-btn {
+  width: 100%;
+  padding: 13px;
+  background: linear-gradient(135deg, #c9a84c, #b8923a);
+  border: none;
+  border-radius: var(--wf-radius-sm);
+  font-size: 14px;
+  font-weight: 600;
+  color: #0a0e1a;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: opacity 0.2s, transform 0.1s, box-shadow 0.2s;
+  box-shadow: 0 4px 20px rgba(201, 168, 76, 0.25);
+  font-family: var(--wf-font-body);
+  margin-top: 4px;
+}
+.lg-submit-btn:hover { opacity: 0.92; transform: translateY(-1px); }
+
+.lg-submit-btn.disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.lg-btn-loading-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.lg-btn-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-top-color: #0a0e1a;
+  border-radius: 50%;
+  animation: wf-spin 0.8s linear infinite;
+  display: inline-block;
+}
+
+.lg-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.lg-divider-line {
+  flex: 1;
+  height: 1px;
+  background: var(--wf-border);
+}
+
+.lg-divider-text {
+  font-size: 12px;
+  color: var(--wf-text-muted);
+}
+
+.lg-switch-text {
+  font-size: 13px;
+  color: var(--wf-text-secondary);
+  text-align: center;
+}
+
+.lg-switch-link {
+  color: var(--wf-gold-400);
+  text-decoration: none;
+  font-weight: 500;
+}
+.lg-switch-link:hover { text-decoration: underline; }
+
+/* ─── Responsive ────────────────────────────────────────────────────────── */
+
+@media (max-width: 860px) {
+  .lg-container { flex-direction: column; max-width: 480px; }
+  .lg-left-panel { border-right: none; border-bottom: 1px solid var(--wf-border); }
+  .lg-right-panel { width: 100%; }
+}
