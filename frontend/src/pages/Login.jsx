@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { loginUser } from "../services/authServices.js";
 import toast from "react-hot-toast";
-import "../styles/login.css";
+import "../styles/Login.css";
 
 export default function Login() {
   const navigate = useNavigate();

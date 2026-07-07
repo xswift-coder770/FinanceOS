@@ -7,7 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { registerUser } from "../services/authServices";
 import toast from "react-hot-toast";
-import "../styles/register.css";
+import "../styles/Register.css";
 
 // Password strength scorer
 const getPasswordStrength = (password) => {
