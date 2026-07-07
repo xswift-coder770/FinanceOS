@@ -1,11 +1,7 @@
- 
-
-
-
 // backend/models/User.js
 
-const mongoose = require("mongoose");
-const bcrypt = require("bcryptjs");
+import mongoose from "mongoose";
+import bcrypt from "bcryptjs";
 
 const userSchema = new mongoose.Schema(
   {
@@ -72,34 +68,27 @@ const userSchema = new mongoose.Schema(
 
 // Hash password before save
 userSchema.pre("save", async function () {
-
-  // only hash if password modified
+  // Only hash if password modified
   if (!this.isModified("password")) {
     return;
   }
 
   const salt = await bcrypt.genSalt(12);
-
   this.password = await bcrypt.hash(this.password, salt);
 });
 
 // Compare password
 userSchema.methods.matchPassword = async function (enteredPassword) {
-
-  return await bcrypt.compare(
-    enteredPassword,
-    this.password
-  );
+  return await bcrypt.compare(enteredPassword, this.password);
 };
 
 // Remove sensitive fields
 userSchema.methods.toSafeObject = function () {
-
   const obj = this.toObject();
-
   delete obj.password;
-
   return obj;
 };
 
-module.exports = mongoose.model("User", userSchema);
+const User = mongoose.model("User", userSchema);
+
+export default User;
