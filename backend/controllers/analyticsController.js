@@ -129,59 +129,7 @@ const monthlyData = Object.values(monthlyMap)
   )
   .map(({ timestamp, ...rest }) => rest);
 
-//     const monthlyMap = {};
-
-//     expenses.forEach(expense => {
-
-//       const month =
-//         new Date(expense.date)
-//           .toLocaleString("default", {
-//             month: "short",
-//           });
-
-//       if (!monthlyMap[month]) {
-//         monthlyMap[month] = {
-//           month,
-//           income: 0,
-//           expense: 0,
-//           savings: 0,
-//         };
-//       }
-
-//       if (expense.type === "income") {
-//         monthlyMap[month].income += expense.amount;
-//       } else {
-//         monthlyMap[month].expense += expense.amount;
-//       }
-
-//       monthlyMap[month].savings =
-//         monthlyMap[month].income -
-//         monthlyMap[month].expense;
-//     });
-
-//    const monthOrder = {
-//   Jan: 1,
-//   Feb: 2,
-//   Mar: 3,
-//   Apr: 4,
-//   May: 5,
-//   Jun: 6,
-//   Jul: 7,
-//   Aug: 8,
-//   Sep: 9,
-//   Oct: 10,
-//   Nov: 11,
-//   Dec: 12,
-// };
-
-// const monthlyData = Object.values(monthlyMap)
-//   .sort(
-//     (a, b) =>
-//       monthOrder[a.month] -
-//       monthOrder[b.month]
-//   );
-    // SMART INSIGHTS
-
+ 
     const highestCategory =
       categorySpend.length > 0
         ? categorySpend.reduce((a, b) =>

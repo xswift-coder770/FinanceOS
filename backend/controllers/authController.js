@@ -1,4 +1,4 @@
-// backend/controllers/authController.js
+ 
 
 import { validationResult } from "express-validator";
 import User from "../models/User.js";

@@ -1,7 +1,6 @@
  
 
-
-// after integration of the backend
+ 
 
 import Navbar from "../components/common/Navbar";
 

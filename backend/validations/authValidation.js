@@ -1,4 +1,4 @@
-// backend/validations/authValidation.js
+ 
 
 import { body } from "express-validator";
 
