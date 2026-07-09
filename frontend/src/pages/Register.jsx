@@ -123,7 +123,7 @@ export default function Register() {
                 <circle cx="14" cy="14" r="3" fill="#c9a84c" />
               </svg>
             </div>
-            <span className="rg-brand-name">WealthFlow</span>
+            <span className="rg-brand-name">FinanceOS</span>
           </div>
 
           <div className="rg-hero-content">
