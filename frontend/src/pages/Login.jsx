@@ -73,7 +73,7 @@ export default function Login() {
                 <circle cx="14" cy="14" r="3" fill="#c9a84c" />
               </svg>
             </div>
-            <span className="lg-brand-name">WealthFlow</span>
+            <span className="lg-brand-name">FinanceOS</span>
           </div>
 
           <div className="lg-hero-content">
